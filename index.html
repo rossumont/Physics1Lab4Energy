@@ -1203,8 +1203,9 @@ function stopSwing(){
 function rampGeom(){
   var zone = document.getElementById('zoneR');
   var W = zone.clientWidth, H = zone.clientHeight;
-  var maxH = 0.05;
-  for(var i=0;i<cfg.rheights.length;i++) maxH = Math.max(maxH, cfg.rheights[i]);
+  /* fit the track to the chosen height so it uses the full width of the
+     screen; the angle drawn is always the true angle */
+  var maxH = Math.max(0.05, theRH());
   var padX = 14, floorY = 24, padTop = 26;
   var availW = Math.max(80, W - padX*2);
   var availH = Math.max(60, H - floorY - padTop);
